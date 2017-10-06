@@ -1,0 +1,2 @@
+# DinkleBot
+Bash toolkit script.
