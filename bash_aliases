@@ -1,6 +1,7 @@
 #General Directory Commands
 alias dira='dir -A -h -l -s -g --group-directories-first'; pwd
 alias lsa='ls -l -A -h | sort -d'
+alias updt='sudo apt-get update && sudo apt-get upgrade -y'
 
 #DinkleBot Repository Commands
 alias dbot='bash ~/DinkleBot/dbot/dinklebot'
