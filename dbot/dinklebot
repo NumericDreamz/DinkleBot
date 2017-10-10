@@ -1,0 +1,108 @@
+#!/bin/bash
+
+#Save bash prompt and change it to Dbot prompt.
+ps1Prompt="$PS1"
+dbPrompt="\[\033[0;32m\]DinkleBot ~$\[\033[0m\] "
+PS1="$dbPrompt"
+
+#Main menu function
+fnct_menu ()
+{
+  clear
+  echo ""
+  echo --------------
+  echo DinkleBot v2.0
+  echo LINUX Edition
+  echo --------------
+  echo ""
+  echo 'Please select an option.'
+  echo 'Option 1'
+  echo 'Option 2'
+  echo 'Option 3'
+  echo '4: Exit'
+
+#Read user input.
+read int
+
+#If statement to process user selection.
+if (($int==1)); then
+  fnct_1
+elif (($int==2)); then
+  fnct_2
+elif (($int==3)); then
+  fnct_3
+elif (($int==4)); then
+  fnct_exit
+else
+  fnct_alt
+fi
+}
+
+#--------------
+#MAIN FUNCTIONS
+#--------------
+
+#Place holder for first option.
+fnct_1 () {
+  clear
+  echo 'This is fucntion 1.'
+  read -p "Press any key to continue..."
+  fnct_menu
+}
+
+#Place holder for second option.
+fnct_2 () {
+  clear
+  echo 'This is function 2.'
+  read -p "Press any key to continue..."
+  fnct_menu
+}
+
+#Place holder for third option.
+fnct_3 () {
+  clear
+  echo 'This is function 3.'
+  read -p "Press any key to continue..."
+  fnct_menu
+}
+
+#Error handeling
+fnct_error () {
+  clear
+  echo 'Invalid Option'
+  read -p "Press any key to continue..."
+  fnct_menu
+}
+
+#Restore prompt to origional and exit Dbot.
+fnct_exit () {
+  PS1="$ps1Prompt"
+  clear
+  exit 1
+}
+
+#-----------
+#EASTER EGGS
+#-----------
+
+#Alternate Input Function
+fnct_alt () {
+  if [[ $int==sw ]]; then
+    fnct_sw
+  else
+    fnct_error
+  fi
+}
+
+#Watch Star Wars
+fnct_sw () {
+  clear
+  telnet towel.blinkenlights.nl
+}
+
+#-------------
+#RUN DINKLEBOT
+#-------------
+
+#Initialize Main Menu
+fnct_menu
